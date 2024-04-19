@@ -54,7 +54,7 @@ public class Main {
         //TODO : Start Program HERE
         
         JLabel text = new JLabel();
-        text.setText("HELLO WORLD");
+        text.setText("Student Grading System");
         text.setHorizontalAlignment(JLabel.CENTER);
         text.setFont(new Font("Arial",Font.PLAIN,20));
 
