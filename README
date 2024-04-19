@@ -1,0 +1,24 @@
+1. NAME : MUHAMAD AZRI BIN YUSOF
+USER MODULE
+- Admin
+- Student
+
+Description:
+The program should be secure and require authorization to access. Only lecturers can access the program to enter student marks. Lecturers will need to import a CSV file containing student names, IDs, and courses enrolled.
+ 
+2. NAME : MUHAMMAD MUFLIH BIN MOHD ZAWAWI
+COURSE MODULE
+- Course
+- Assignment
+
+Description:
+The course module should be private for assignments associated with a specific course. For example, a course might have five assignments: Quiz 1, Quiz 2, Presentation, Test Examination, and Final Exam. Lecturers can define the weight (percentage) of each assignment.
+
+
+3. NAME : DHURGGA A/P S.MAHENTHIRAN
+REPORT MODULE
+- GradeReport
+- Calculate
+
+Description:
+The report module will calculate grades for all assignments linked to a course. Lecturers will need to enter student marks for each assignment. The program will then generate a CSV file containing a list of students, their course names, individual course grades, and their overall CGPA (Cumulative Grade Point Average).
