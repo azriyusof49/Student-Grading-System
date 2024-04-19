@@ -8,7 +8,7 @@ public class Auth{
     }
 
     public boolean check(){
-        if (this.USERNAME.equals("admin")  && this.PASSWORD.equals("admin") ) {
+        if (this.USERNAME.equals("ad")  && this.PASSWORD.equals("ad") ) {
             return true;
         } else {
             return false;

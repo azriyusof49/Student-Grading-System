@@ -16,14 +16,14 @@ public class Main {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Arrange vertically
 
-            JLabel label1 = new JLabel("Username");
+            JLabel labUser = new JLabel("Username");
             JTextField field1 = new JTextField(5); // Set width for visual appeal
-            panel.add(label1);
+            panel.add(labUser);
             panel.add(field1);
 
-            JLabel label2 = new JLabel("Password");
+            JLabel labPass = new JLabel("Password");
             JTextField field2 = new JTextField(5);
-            panel.add(label2);
+            panel.add(labPass);
             panel.add(field2);
 
             int result = JOptionPane.showConfirmDialog(null, panel, lang.getText("SysName"), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
@@ -39,7 +39,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Please enter both username and password.");
                 }else{
                     if(admin.check()){// Successful login message
-                        JOptionPane.showMessageDialog(null, "Login successful!", lang.getText("SysName"), JOptionPane.PLAIN_MESSAGE);
+                        //JOptionPane.showMessageDialog(null, "Login successful!", lang.getText("SysName"), JOptionPane.PLAIN_MESSAGE);
                         auth = false;
                     }else{
                         JOptionPane.showMessageDialog(null, "Wrong Username Or Password");
