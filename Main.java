@@ -6,8 +6,11 @@ public class Main {
     String username, password;
     public static void main(String[] args) {
         String username = null , password = null;
-        String SystemName = "Student Grading System";
+        //String SystemName = "Student Grading System";
         boolean auth = true, sys = false;
+
+        Lang lang = new Lang(); // Call Text from class (For Repeating Text)
+
         while(auth){
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Arrange vertically
@@ -22,7 +25,7 @@ public class Main {
             panel.add(label2);
             panel.add(field2);
 
-            int result = JOptionPane.showConfirmDialog(null, panel, SystemName, JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(null, panel, lang.getText("SysName"), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
             if (result == JOptionPane.OK_OPTION) {
                 username = field1.getText();
@@ -35,7 +38,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Please enter both username and password.");
                 }else{
                     if(admin.check()){// Successful login message
-                        JOptionPane.showMessageDialog(null, "Login successful!", SystemName, JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Login successful!", lang.getText("SysName"), JOptionPane.PLAIN_MESSAGE);
                         auth = false;
                     }else{
                         JOptionPane.showMessageDialog(null, "Wrong Username Or Password");
@@ -51,10 +54,10 @@ public class Main {
             System.exit(0);
         }// Exit program
 
-        //TODO : Start Program HERE
+        //TODO : CODE UI HERE
         
         JLabel text = new JLabel();
-        text.setText("Student Grading System");
+        text.setText(lang.getText("SysName"));
         text.setHorizontalAlignment(JLabel.CENTER);
         text.setFont(new Font("Arial",Font.PLAIN,20));
 
