@@ -2,22 +2,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
 
 public class Frame extends JFrame{    
     Lang lang = new Lang(); // Call Text
     JButton fileImport, listStudent, report, exit;//Button Variable
-    JPanel MenuBar, top_menubar;
+    JPanel MenuBar, top_menubar, HomeMenu;
     int[] frameSize = {1080,600};
 
     public Frame(){
-
     }
 
     public void HomePage(){
         JLabel text = new JLabel();
-        text.setText(lang.getText("SysName"));
-        text.setHorizontalAlignment(JLabel.CENTER);
-        text.setFont(new Font("Arial",Font.PLAIN,10));
+        text.setText(lang.getText("listStudent"));
+        //text.setHorizontalAlignment(JLabel.LEFT);
+        //text.setAlignmentY(600);
+        text.setFont(new Font("TimesNewRomen",Font.BOLD,25));
 
         //Frame Start
         JFrame frame = new JFrame();
@@ -39,10 +40,12 @@ public class Frame extends JFrame{
         top_menubar.setPreferredSize(new Dimension(100,430));
 
         // Create buttons with specific size
-        fileImport = new TransparentButton(lang.getText("import"), new Color(54, 69, 79));
+        fileImport = new TransparentButton(lang.getText("import"), new Color(40, 40, 43));
         listStudent = new TransparentButton(lang.getText("listStudent"), new Color(54, 69, 79));
-        report = new TransparentButton(lang.getText("report"), new Color(54, 69, 79));
-        exit = new TransparentButton(lang.getText("exit"), new Color(54, 69, 79));
+        report = new TransparentButton(lang.getText("report"), new Color(40, 40, 43));
+        exit = new TransparentButton(lang.getText("exit"), new Color(40, 40, 43));
+
+        exit.setPreferredSize(new Dimension(100,23));
         
 
         //EventListener BUTTON
@@ -56,8 +59,33 @@ public class Frame extends JFrame{
         
        //-------------END MENUBAR FILL----------
 
+       //------------HOME MENU---------- 
+       HomeMenu = new JPanel();
+       HomeMenu.setBackground(new Color(40, 40, 43));
+       HomeMenu.setLayout(new FlowLayout(FlowLayout.CENTER,0,50));
+
+       RoundedPanel tableName = new RoundedPanel(40);
+       tableName.setLayout(new FlowLayout(FlowLayout.CENTER));
+       tableName.setBackground(new Color(251,244,239));
+       tableName.setPreferredSize(new Dimension(800,450));
+
+       //TODO : MAKE THE BOX AT BUTTOM OF TEXT
+       JPanel listStudent = new JPanel();
+       listStudent.setBackground(Color.BLACK);
+       listStudent.setPreferredSize(new Dimension(100,100));
+
+       //Home Menu Component
+       tableName.add(text);
+       //tableName.add(listStudent);
+
+
+       HomeMenu.add(tableName);
+       //------------END HOME MENU---------- 
+
+
         //Frame Component
         frame.add(MenuBar, BorderLayout.WEST);
+        frame.add(HomeMenu, BorderLayout.CENTER);
         frame.setVisible(true);
     }
 
@@ -73,7 +101,7 @@ public class Frame extends JFrame{
             setContentAreaFilled(false);  // Don't paint default background
             setBorderPainted(false);     // Don't paint default border
             setFocusPainted(false);     // Don't paint default focus indicator
-    
+            setFont(new Font("TimesNewRomen",Font.BOLD,13));
             // Add mouse listener to track hover state
             addMouseListener(new MouseAdapter() {
                 @Override
@@ -132,6 +160,30 @@ public class Frame extends JFrame{
             return size;
         }
     }
+    //BORDER PANEL ROUNDED
+    public class RoundedPanel extends JPanel {
+        private int radius;
     
+        public RoundedPanel(int radius) {
+            this.radius = radius;
+            setOpaque(false); // Make sure to set opaque to false to see the background color
+        }
     
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    
+            int width = getWidth();
+            int height = getHeight();
+            int diameter = radius * 2;
+    
+            // Draw background
+            g2d.setColor(getBackground());
+            g2d.fill(new RoundRectangle2D.Double(0, 0, width, height, diameter, diameter));
+    
+            g2d.dispose();
+        }
+    }
 }
