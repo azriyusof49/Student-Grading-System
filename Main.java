@@ -1,4 +1,3 @@
-import java.awt.Font;
 
 import javax.swing.*;
 
@@ -6,8 +5,10 @@ public class Main {
     String username, password;
     public static void main(String[] args) {
         String username = null , password = null;
+        int count = 3;
         //String SystemName = "Student Grading System";
-        boolean auth = true, sys = false;
+        boolean auth = true; //Loop control 
+        boolean sys = false; //System Exit control
 
         Frame frame = new Frame(); // Call Page
         Lang lang = new Lang(); // Call Text from class (For Repeating Text)
@@ -42,7 +43,13 @@ public class Main {
                         //JOptionPane.showMessageDialog(null, "Login successful!", lang.getText("SysName"), JOptionPane.PLAIN_MESSAGE);
                         auth = false;
                     }else{
-                        JOptionPane.showMessageDialog(null, "Wrong Username Or Password");
+                        JOptionPane.showMessageDialog(null, "Your username or password seems incorrect. You have " + (count-1) + " attempts left." );
+                        count--;
+                        if(count == 0){
+                            auth = false;
+                            sys = true;
+                            JOptionPane.showMessageDialog(null, lang.getText("lockAccount"));
+                        }
                     }
                 }
             }
