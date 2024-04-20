@@ -63,6 +63,7 @@ public class Main {
         }// Exit program
 
         //TODO : CODE UI HERE
+        
        frame.HomePage();
                
     }
