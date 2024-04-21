@@ -3,17 +3,18 @@ import javax.swing.*;
 
 public class Main {
     String username, password;
-    public static void main(String[] args) {
-        String username = null , password = null;
-        int count = 3;
-        //String SystemName = "Student Grading System";
-        boolean auth = true; //Loop control 
-        boolean sys = false; //System Exit control
 
-        Frame frame = new Frame(); // Call Page
+    public static void main(String[] args) {
+        String username = null, password = null;
+        int count = 3;
+        // String SystemName = "Student Grading System";
+        boolean auth = true; // Loop control
+        boolean sys = false; // System Exit control
+
+        Test frame = new Test(); // Call Page
         Lang lang = new Lang(); // Call Text from class (For Repeating Text)
 
-        while(auth){
+        while (auth) {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Arrange vertically
 
@@ -27,7 +28,8 @@ public class Main {
             panel.add(labPass);
             panel.add(field2);
 
-            int result = JOptionPane.showConfirmDialog(null, panel, lang.getText("SysName"), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(null, panel, lang.getText("SysName"),
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
             if (result == JOptionPane.OK_OPTION) {
                 username = field1.getText();
@@ -38,33 +40,40 @@ public class Main {
                 // Input check
                 if (username.isEmpty() || password.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please enter both username and password.");
-                }else{
-                    if(admin.check()){// Successful login message
-                        //JOptionPane.showMessageDialog(null, "Login successful!", lang.getText("SysName"), JOptionPane.PLAIN_MESSAGE);
+                } else {
+                    if (admin.check()) {// Successful login message
+                        // JOptionPane.showMessageDialog(null, "Login successful!",
+                        // lang.getText("SysName"), JOptionPane.PLAIN_MESSAGE);
                         auth = false;
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Your username or password seems incorrect. You have " + (count-1) + " attempts left." );
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Your username or password seems incorrect. You have "
+                                + (count - 1) + " attempts left.");
                         count--;
-                        if(count == 0){
+                        if (count == 0) {
                             auth = false;
                             sys = true;
                             JOptionPane.showMessageDialog(null, lang.getText("lockAccount"));
                         }
                     }
                 }
-            }
-            else {// Cancel button and X button
+            } else {// Cancel button and X button
                 auth = false;
                 sys = true;
             }
-        }// END WHILE LOOP
+        } // END WHILE LOOP
         if (sys) {
             System.exit(0);
-        }// Exit program
+        } // Exit program
 
-        //TODO : CODE UI HERE
-        
-       frame.HomePage();
-               
+        // TODO : CODE UI HERE
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                HomePage frame = new HomePage();
+                frame.setVisible(true);
+            }
+        });
+
     }
 }

@@ -4,13 +4,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
-public class Frame extends JFrame{    
+public class Test extends JFrame{    
     Lang lang = new Lang(); // Call Text
     JButton fileImport, listStudent, report, exit;//Button Variable
     JPanel MenuBar, top_menubar, HomeMenu;
     int[] frameSize = {1080,600};
 
-    public Frame(){
+    public Test(){
     }
 
     public void HomePage(){
