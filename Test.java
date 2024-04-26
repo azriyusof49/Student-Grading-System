@@ -69,7 +69,7 @@ public class Test extends JFrame{
        tableName.setBackground(new Color(251,244,239));
        tableName.setPreferredSize(new Dimension(800,450));
 
-       //TODO : MAKE THE BOX AT BUTTOM OF TEXT
+
        JPanel listStudent = new JPanel();
        listStudent.setBackground(Color.BLACK);
        listStudent.setPreferredSize(new Dimension(100,100));

@@ -13,7 +13,7 @@ public class Lang{
         text.put("lockAccount",      "Account locked due to multiple failed attempts. Please try again later.");
         text.put("import",           "Import");
         text.put("report",           "Grade Report");
-        text.put("listStudent",      "LIST STUDENT"); //TODO : If NOT USE REMOVE
+        text.put("listStudent",      "LIST STUDENT");
         text.put("exit",             "Exit");
         
 

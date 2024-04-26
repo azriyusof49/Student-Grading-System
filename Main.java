@@ -10,8 +10,7 @@ public class Main {
         // String SystemName = "Student Grading System";
         boolean auth = true; // Loop control
         boolean sys = false; // System Exit control
-
-        Test frame = new Test(); // Call Page
+        
         Lang lang = new Lang(); // Call Text from class (For Repeating Text)
 
         while (auth) {
@@ -65,7 +64,7 @@ public class Main {
             System.exit(0);
         } // Exit program
 
-        // TODO : CODE UI HERE
+        // TODO : CODE START HERE
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
