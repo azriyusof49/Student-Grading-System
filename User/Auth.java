@@ -1,4 +1,3 @@
-
 public class Auth{
     private String USERNAME, PASSWORD;
 
@@ -8,10 +7,13 @@ public class Auth{
     }
 
     public boolean check(){
-        if (this.USERNAME.equals("ad")  && this.PASSWORD.equals("ad") ) {
-            return true;
-        } else {
-            return false;
+        String[] validUsernames = {"admin", "ad", "user2"};
+        String[] validPasswords = {"admin", "ad", "password2"};
+        for (int i = 0; i < validUsernames.length; i++) {
+            if (this.USERNAME.equals(validUsernames[i])  && this.PASSWORD.equals(validPasswords[i]) ) {
+                return true;
+            } 
         }
+        return false;
     }
 }

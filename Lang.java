@@ -15,7 +15,6 @@ public class Lang{
         text.put("report",           "Grade Report");
         text.put("listStudent",      "LIST STUDENT");
         text.put("exit",             "Exit");
-        
 
 
         //--------------------------------------------------------------------------------------------------------------------------------//
