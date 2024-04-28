@@ -1,11 +1,5 @@
-Black aesthetic color palette with hex codes (left to right):
-
-All black: #000000
-
-Fairly bright: #FBF4EF
-
-Blue touch: #E8EAEB
-
-Wintery cool: #AAABAE
-
-Romantic vibes: #975E64
+Text 	     - Lucida Sans
+Text MenuBar - Segoe UI
+Main Color   - #16425B || rgb(22, 66, 91)
+Sub Color    - #2F6690 || rgb(47, 102, 144)
+Sub Color    - #3A7CA5 || rgb(58, 124, 165)
