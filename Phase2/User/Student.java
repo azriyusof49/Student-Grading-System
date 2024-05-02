@@ -11,6 +11,9 @@ public class Student {
     private List<String> studentNames;
     private String filePath;
     private int StudentCount;
+
+    public Student(){
+    }
     
     public Student(String filePath) {
         this.filePath = filePath;

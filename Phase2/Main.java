@@ -29,7 +29,7 @@ public class Main {
         System.out.print("Enter Password: ");
         password = in.nextLine();
 
-        Admin Auth = new Admin("Aiman","Hakim",username, password);
+        Admin Auth = new Admin(username, password);
 
         if (Auth.check()) {
             
