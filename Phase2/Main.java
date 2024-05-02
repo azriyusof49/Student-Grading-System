@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         final int moduleCount = 1;
         String[] moduleName;
-        String username, password;
+        String username, password,filePath;
         String[] holdText;
         int[] quiz, assignment, test;
         boolean[] hasFinalExam;
@@ -28,9 +28,11 @@ public class Main {
         username = in.nextLine();
         System.out.print("Enter Password: ");
         password = in.nextLine();
-        Admin Auth = new Admin(username, password);
-        if (Auth.check()) {
 
+        Admin Auth = new Admin("Aiman","Hakim",username, password);
+
+        if (Auth.check()) {
+            
             for (int i = 0; i < moduleCount; i++) {
                 System.out.print("Enter Name Module: ");
                 moduleName[i] = in.nextLine();
@@ -67,9 +69,16 @@ public class Main {
                 System.out.println(" ");
             }
 
-            System.out.print("How many Student you have: ");
+            //importing file
+            System.out.print("Please enter the file location of Student List: ");
+            filePath = in.nextLine();
+            Student studentInfo = new Student(filePath);
+            studentInfo.importCSV();
+            studentInfo.displayStudent();
 
-            // Student student1 = new Student("Muhamad", "Azri", "S69911");
+            System.out.println("Total of Student : " + studentInfo.getStudentCount());
+            
+            
         }
     }
 }

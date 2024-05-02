@@ -1,32 +1,59 @@
 package Phase2.User;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
-    private String sFirstName,sLastName, StudentID;
-
-    public Student(String sFirstName,String sLastName, String StudentID){
-        this.StudentID = StudentID;
-        this.sFirstName = sFirstName;
-        this.sLastName = sLastName;
+    private List<String> studentIDs;
+    private List<String> studentNames;
+    private String filePath;
+    private int StudentCount;
+    
+    public Student(String filePath) {
+        this.filePath = filePath;
+        studentIDs = new ArrayList<>();
+        studentNames = new ArrayList<>();
     }
 
-    public String getsFirstName() {
-        return sFirstName;
-    }
-    public String getsLastName() {
-        return sLastName;
-    }
-    public String getStudentID() {
-        return StudentID;
+    public List<String> getStudentIDs() {
+        return studentIDs;
     }
 
-    public String getFullname(){
-        return (this.sFirstName + " " + this.sLastName);
+    public List<String> getStudentNames() {
+        return studentNames;
     }
 
-    public void displayStudent(){
-     System.out.println("List Student");
-     System.out.println("Name : " + getFullname());   
-     System.out.println("Studetn ID : " + getStudentID());
+    public int getStudentCount(){
+        return this.StudentCount;
     }
 
+    public void importCSV() {
+        String line = "";
+        try (BufferedReader studentFile = new BufferedReader(new FileReader(this.filePath))) {
+            while ((line = studentFile.readLine()) != null) {
+                String[] values = line.split(",");
+                if (values.length >= 2) {
+                    studentIDs.add(values[0]);
+                    studentNames.add(values[1]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayStudent() {
+        this.StudentCount = 0;
+        System.out.println("List Student");
+        for (int i = 0; i < studentIDs.size(); i++) {
+            System.out.println((i+1) +".");
+            System.out.println("Student ID: " + studentIDs.get(i));
+            System.out.println("Name: " + studentNames.get(i));
+            System.out.println();
+            this.StudentCount++;
+        }
+    }
 }
