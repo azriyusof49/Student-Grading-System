@@ -50,7 +50,7 @@ public class Student {
 
     public void displayStudent() {
         this.StudentCount = 0;
-        System.out.println("List Student");
+        System.out.println("Importing List Student.....");
         for (int i = 0; i < studentIDs.size(); i++) {
             System.out.println((i+1) +".");
             System.out.println("Student ID: " + studentIDs.get(i));

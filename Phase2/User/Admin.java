@@ -5,11 +5,8 @@ public class Admin extends User {
     private String USERNAME, PASSWORD;
     
 
-    public Admin(String fname, String lname) {
+    public Admin(String fname, String lname,String username, String password) {
         super(fname, lname);
-    }
-
-    public Admin(String username, String password){
         this.USERNAME = username;
         this.PASSWORD = password;
     }

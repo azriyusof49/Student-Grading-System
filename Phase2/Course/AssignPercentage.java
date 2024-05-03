@@ -9,12 +9,18 @@ public class AssignPercentage extends QuantityTask {
     private int quiz[] = new int[quizCount];
     private int Assignment[] = new int[AssignCount];
     private int Test[] = new int[TestCount];
-    private int FinalExam, totalPercentage;
+    private int FinalExam, totalPercentage; 
+    private double CreaditUnit;
+
     private boolean hasFinalExam;
 
-    public AssignPercentage(String CourseName, int Quiz, int Assignment, int Test, boolean hasFinalExam) {
+    public AssignPercentage(){
+        
+    }
+    public AssignPercentage(String CourseName, int Quiz, int Assignment, int Test, boolean hasFinalExam, double CreaditUnit) {
         super(CourseName, Quiz, Assignment, Test);
         this.hasFinalExam = hasFinalExam;
+        this.CreaditUnit = CreaditUnit;
 
     }
 
@@ -85,6 +91,9 @@ public class AssignPercentage extends QuantityTask {
     }
 
     // Getter
+    public double getCreaditUnit() {
+        return CreaditUnit;
+    }
     public int[] getQuiz() {
         return this.quiz;
     }
