@@ -1,6 +1,6 @@
 package Course;
 
-public class ListTask extends Course {
+public class ListTask extends Course{
 
     private int Quiz, CreaditUnit,Assignment, Test, FinalExam;
 
@@ -32,4 +32,5 @@ public class ListTask extends Course {
     public int getFinalExam() {
         return FinalExam;
     }
+    
 }

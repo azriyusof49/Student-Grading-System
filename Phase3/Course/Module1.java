@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Module1 extends ListTask implements Expand{
+public class Module1 extends ListTask{
     private int quiz[] = new int[super.getQuiz()];
     private int Assignment[] = new int[super.getAssignment()];
     private int Test[] = new int[super.getTest()];

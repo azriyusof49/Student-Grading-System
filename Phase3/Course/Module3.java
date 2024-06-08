@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Module3 extends ListTask implements Expand{
+public class Module3 extends ListTask{
     private int quiz[] = new int[super.getQuiz()];
     private int Assignment[] = new int[super.getAssignment()];
     private int Test[] = new int[super.getTest()];
@@ -115,8 +115,8 @@ public class Module3 extends ListTask implements Expand{
                         totalMark += (mark / 100.0) * getFinalExamPercentage()[i];
                         countLine++;
                     }
+                    //setter
                     studentTotalMarks.add(totalMark); // Add total mark for this line
-                    System.out.println("File import successfully!");
                 } else {
                     System.out.println("File does not meet the requirements.");
                 }
