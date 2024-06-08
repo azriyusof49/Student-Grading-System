@@ -13,6 +13,7 @@ import User.Student;
  */
 public class Report extends Calculate {
 
+    // Constructor
     public Report(ArrayList<Student> students, List<Double> totalMark1, List<Double> totalMark2,
             List<Double> totalMark3, List<Double> totalMark4,
             List<Double> totalMark5) {
@@ -20,6 +21,7 @@ public class Report extends Calculate {
 
     }
 
+    // Method to get grade based on grade points
     public String getGrade(double gradePoints) {
         String grade = "";
         if (gradePoints == 4.0) {
@@ -42,6 +44,7 @@ public class Report extends Calculate {
         return grade;
     }
 
+     // Method to display report to console
     public void displayReport() {
         System.out.println("----- LIST STUDENT -------");
         for (int studentIndex = 0; studentIndex < super.getStudents().size(); studentIndex++) {
@@ -110,6 +113,7 @@ public class Report extends Calculate {
         }
     }
 
+    // Method to generate CSV report
     public void generateCSVReport(String filePath) {
         try {
             FileWriter csvWriter = new FileWriter(filePath);

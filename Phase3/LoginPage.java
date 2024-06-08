@@ -13,6 +13,7 @@ public class LoginPage extends javax.swing.JFrame {
     private TextField textField1;
     private TextField textField2;
 
+    // Track login attempts
     private int wrongAttempts = 3;
 
 
@@ -115,6 +116,8 @@ public class LoginPage extends javax.swing.JFrame {
 
         pack();
     }
+
+    // Listen for Enter key press
     private void setEnterKeyListener() {
         textField1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -127,6 +130,8 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
     }
+
+    // Perform login
     private void login() {
         String username = textField1.getText();
         String password = new String(textField2.getText());
@@ -150,6 +155,7 @@ public class LoginPage extends javax.swing.JFrame {
         }
     }                                          
 
+    // Login button action
     private void LoginPerform(java.awt.event.ActionEvent evt) {                                        
         String username = textField1.getText();
         String password = textField2.getText();
@@ -168,8 +174,8 @@ public class LoginPage extends javax.swing.JFrame {
                 System.exit(0);
             }
         }else{
-            dispose();
-            Main mainApp = new Main();
+            dispose(); //close frame login
+            Main mainApp = new Main(); //run main program
             mainApp.run();
         }
     }                                       

@@ -11,10 +11,12 @@ import User.*;
 
 public class Main {
 
+    // Arrays to store student names, IDs, course details, and menu options
     private ArrayList<String> studentNames = new ArrayList<>();
     private ArrayList<String> studentIDs = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
 
+    // Lists to store marks for each module and total marks for each student
     List<Double> MarkModule1 = new ArrayList<>();
     List<Double> studentTotalMarkModule1 = new ArrayList<>();
     List<Double> studentTotalMarkModule2 = new ArrayList<>();
@@ -27,6 +29,7 @@ public class Main {
     int countStudent = 0;
     Course[] softwareEngineering = new Course[5];
 
+    // Names of modules and status of file import and assignment
     String nameCourse[] = new String[] {
             "Module 1",
             "Module 2",
@@ -45,11 +48,11 @@ public class Main {
     String menu[] = new String[] {
             "Manage Course | EMPTY",
             "Assign Percentage | NOT ASSIGN YET",
-            "Import Student File | FILE IMPORT : NULL",
+            "Import List Student File | FILE IMPORT : NULL",
             "Import Mark Student | [0/5]",
-            "Display GPA",
+            "Display Result Student",
             "Display Info Student",
-            "Generate Report"
+            "Export Mark Student"
     };
     String hasAssign[] = new String[] {
             "",
@@ -59,11 +62,13 @@ public class Main {
             "",
     };
 
+    // Main method to start the program
     public void run() {
         boolean exit = false;
 
         while (!exit) {
 
+            // Display main menu
             System.out.println("----------- Student Grading System (Software Engineering)-----------");
             System.out.println("Number of Student : " + countStudent);
             System.out.printf(
@@ -73,39 +78,38 @@ public class Main {
             System.out.print("Select an option: ");
             int input = scanner.nextInt();
 
+            // Perform action based on user input
             switch (input) {
                 case 1:
                     // Manage Course functionality
                     manageCourse();
-                    menu[0] = "Manage Course | DONE";
+                    menu[0] = "Manage Course | DONE"; // Update menu option
                     break;
                 case 2:
                     AssignPercentage();
-                    menu[1] = "Assign Percentage | DONE";
+                    menu[1] = "Assign Percentage | DONE"; // Update menu option
                     break;
                 case 3:
+                    // Read student file and display student info
                     if (studentIDs != null && studentNames != null) {
                         studentIDs.clear();
                         studentNames.clear();
                     }
                     readStudentFile();
                     displayStudentInfo();
-                    menu[2] = "Import Student File | FILE IMPORT : DONE";
-                    // Import Module File functionality
+                    menu[2] = "Import Student File | FILE IMPORT : DONE"; // Update menu option
                     break;
                 case 4:
-                    importMarkModule();
-                    // Assign Percentage functionality
+                    importMarkModule(); // Import marks for each module
                     break;
                 case 5:
-                    displayStudentGPA();
-                    // Assign Percentage functionality
+                    displayStudentGPA();// Display GPA for students
                     break;
                 case 6:
-                    displayStudentInfo();
+                    displayStudentInfo();// Display student information
                     break;
                 case 7:
-                    generateReport();
+                    generateReport();// Generate report
                     break;
                 case 0:
                     System.out.println("System Exiting....");
@@ -119,6 +123,7 @@ public class Main {
         scanner.close();
     }
 
+    // Method to manage course details
     public void manageCourse() {
         boolean exit = false;
         while (!exit) {
@@ -137,6 +142,7 @@ public class Main {
             input = scanner.nextInt();
             scanner.nextLine();
             switch (input) {
+                // Options for managing each module
                 case 1:
                     System.out.println("Enter Course Name: ");
                     nameCourse[0] = scanner.nextLine();
@@ -247,7 +253,7 @@ public class Main {
             }
         }
     }
-
+    // Method to assign percentage for each module
     public void AssignPercentage() {
         int input;
         System.out.println("----------- Student Grading System (Software Engineering)-----------");
@@ -305,25 +311,31 @@ public class Main {
 
     }
 
+    // Method to generate report
     public void generateReport() {
         String filePath;
         scanner.nextLine();
+        // Create report object with necessary data
         Report info = new Report(students, studentTotalMarkModule1, studentTotalMarkModule2,
                 studentTotalMarkModule3, studentTotalMarkModule4, studentTotalMarkModule5);
         System.out.println("Please enter the file location to Export (path/to/your/[fileName].csv) :");
         filePath = scanner.nextLine();
+        // Generate CSV report
         info.generateCSVReport(filePath);
     }
 
+    // Method to display student GPA
     public void displayStudentGPA() {
+         // Create report object with necessary data
         Report info = new Report(students, studentTotalMarkModule1, studentTotalMarkModule2,
                 studentTotalMarkModule3, studentTotalMarkModule4, studentTotalMarkModule5);
 
-        // info.displayStudentGPA();
+         // Display GPA report
         info.displayReport();
 
     }
 
+    // Method to read student file
     public void readStudentFile() {
 
         String filepath;
@@ -333,6 +345,7 @@ public class Main {
         System.out.println();
         String line = "";
         try (BufferedReader studentFile = new BufferedReader(new FileReader(filepath))) {
+            // Read data from CSV file
             while ((line = studentFile.readLine()) != null) {
                 String[] values = line.split(",");
                 if (values.length >= 2) {
@@ -343,19 +356,22 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // Clear previous student data
         if (students != null) {
             students.clear();
             countStudent = 0;
         }
+        // Create student objects and add them to the list
         for (int i = 0; i < studentNames.size(); i++) {
             students.add(new Student(studentNames.get(i), studentIDs.get(i), softwareEngineering));
             countStudent++;
         }
     }
 
+     // Method to display student information
     public void displayStudentInfo() {
 
-        // Assign Student to Class
+        // Display course information for each student
         for (Student info : students) {
             info.displayInfoCourse();
 
@@ -363,6 +379,7 @@ public class Main {
         System.out.println("Total Student : " + countStudent);
     }
 
+     // Method to import marks for each module
     public void importMarkModule() {
         boolean exit = false;
         int input;
@@ -380,15 +397,18 @@ public class Main {
             input = scanner.nextInt();
             scanner.nextLine();
             switch (input) {
+                 // Import marks for each module
                 case 1:
                     System.out.printf("Please enter the file location of Mark %s.csv (path/to/your/[fileName].csv): \n",
                             nameCourse[0]);
                     filepath = scanner.nextLine();
+                    // Check if the corresponding module instance exists and import marks
                     if (softwareEngineering[0] instanceof Module1) {
                         Module1 info = (Module1) softwareEngineering[0];
                         info.getTotalMark(filepath);
                         studentTotalMarkModule1 = info.getStudentTotalMark();
-                        hasImport[0] = "| FILE IMPORT : DONE";
+                        // Update status
+                        hasImport[0] = "| FILE IMPORT : DONE"; 
                         count++;
                         menu[3] = "Import Mark Student | [" + count + "/5]";
                     }
@@ -402,6 +422,7 @@ public class Main {
                         Module2 info = (Module2) softwareEngineering[1];
                         info.getTotalMark(filepath);
                         studentTotalMarkModule2 = info.getStudentTotalMark();
+                        // Update status
                         hasImport[1] = "| FILE IMPORT : DONE";
                         count++;
                         menu[3] = "Import Mark Student | [" + count + "/5]";
@@ -415,6 +436,7 @@ public class Main {
                         Module3 info = (Module3) softwareEngineering[2];
                         info.getTotalMark(filepath);
                         studentTotalMarkModule3 = info.getStudentTotalMark();
+                        // Update status
                         hasImport[2] = "| FILE IMPORT : DONE";
                         count++;
                         menu[3] = "Import Mark Student | [" + count + "/5]";
@@ -428,6 +450,7 @@ public class Main {
                         Module4 info = (Module4) softwareEngineering[3];
                         info.getTotalMark(filepath);
                         studentTotalMarkModule4 = info.getStudentTotalMark();
+                        // Update status
                         hasImport[3] = "| FILE IMPORT : DONE";
                         count++;
                         menu[3] = "Import Mark Student | [" + count + "/5]";
@@ -441,6 +464,7 @@ public class Main {
                         Module5 info = (Module5) softwareEngineering[4];
                         info.getTotalMark(filepath);
                         studentTotalMarkModule5 = info.getStudentTotalMark();
+                        // Update status
                         hasImport[4] = "| FILE IMPORT : DONE";
                         count++;
                         menu[3] = "Import Mark Student | [" + count + "/5]";
@@ -456,11 +480,11 @@ public class Main {
 
     }
 
+     // Main method to start the program
     public static void main(String[] args) {
 
         LoginPage loginFrame = new LoginPage();
         loginFrame.setVisible(true);
-
         // Main mainApp = new Main();
         // mainApp.run();
 

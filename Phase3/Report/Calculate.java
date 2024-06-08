@@ -6,6 +6,7 @@ import User.Student;
 
 public class Calculate {
 
+     // Attributes
     private ArrayList<Student> students;
     private List<Double> studentTotalMarkModule1;
     private List<Double> studentTotalMarkModule2;
@@ -19,6 +20,7 @@ public class Calculate {
     public List<Double> gradePointsModule4 = new ArrayList<>();
     public List<Double> gradePointsModule5 = new ArrayList<>();
 
+    // Constructor
     public Calculate(ArrayList<Student> students, List<Double> totalMark1, List<Double> totalMark2,
                      List<Double> totalMark3, List<Double> totalMark4,
                      List<Double> totalMark5) {
@@ -31,10 +33,12 @@ public class Calculate {
         calculateGradePoints();
     }
 
+     // Getter for students
     public ArrayList<Student> getStudents() {
         return students;
     }
 
+    // Method to calculate grade points for each student
     private void calculateGradePoints() {
         for (Student student : students) {
             Course[] courses = student.getCourses();
@@ -59,6 +63,7 @@ public class Calculate {
         }
     }
 
+    // Method to calculate grade point for a student
     private double getGradePoint(List<Double> studentMarks, int studentIndex, double creditUnit) {
         if (studentMarks.size() > studentIndex) {
             double mark = studentMarks.get(studentIndex);
@@ -68,6 +73,7 @@ public class Calculate {
         }
     }
 
+    // Method to calculate GPA for each student
     public List<Double> getGPA() {
         double[] studentSumGradePoint = new double[students.size()];
         double[] totalCreditUnits = new double[students.size()];
@@ -115,6 +121,7 @@ public class Calculate {
         return studentGPA;
     }
 
+    // Method to display GPA for each student
     public void displayStudentGPA() {
         List<Double> gpas = getGPA();
         for (int i = 0; i < gpas.size(); i++) {

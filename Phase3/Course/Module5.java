@@ -52,6 +52,7 @@ public class Module5 extends ListTask implements Expand{
     public int[] getFinalExamPercentage() {
         return FinalExam;
     }
+    // Method to assign percentage for each task
     @Override
     public void assignPercentage() {
         int TotalPercentage = 0;
@@ -100,6 +101,7 @@ public class Module5 extends ListTask implements Expand{
         }
         System.out.println("Percentage has been assigned!");
     }
+    // Method to get total marks for each student from a file
     @Override
     public void getTotalMark(String filePath) {
         int totalAssessment = super.getTest() + super.getAssignment() + super.getQuiz() + super.getFinalExam() + getVideoAssignment();

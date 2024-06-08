@@ -14,11 +14,12 @@ public class Module1 extends ListTask implements Expand{
     private int FinalExam[] = new int[super.getFinalExam()];
     private List<Double> studentTotalMarks = new ArrayList<>();
 
+    // Constructor
     public Module1(String courseName, int CreaditUnit, int Quiz, int Assignment, int Test, int FinalExam) {
         super(courseName, CreaditUnit, Quiz, Assignment, Test, FinalExam);
         
     }
-
+    // Getter for student total marks
     public List<Double> getStudentTotalMark() {
         return studentTotalMarks;
     }
@@ -39,6 +40,7 @@ public class Module1 extends ListTask implements Expand{
         return FinalExam;
     }
 
+    // Method to assign percentage for each task
     @Override
     public void assignPercentage() {
         int TotalPercentage;
@@ -80,6 +82,7 @@ public class Module1 extends ListTask implements Expand{
         System.out.println("Percentage has assign!");
     }
 
+    // Method to get total marks for each student from a file
     @Override
     public void getTotalMark(String filePath) {
         int totalAssessment = super.getTest() + super.getAssignment() + super.getQuiz() + super.getFinalExam();
