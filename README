@@ -1,4 +1,4 @@
-1. NAME : MUHAMAD AZRI BIN YUSOF
+1. NAME : MUHAMMAD MUFLIH BIN MOHD ZAWAWI
 USER MODULE
 - Admin
 - Student
@@ -6,7 +6,7 @@ USER MODULE
 Description:
 The program should be secure and require authorization to access. Only lecturers can access the program to enter student marks. Lecturers will need to import a CSV file containing student names, IDs, and courses enrolled.
  
-2. NAME : MUHAMMAD MUFLIH BIN MOHD ZAWAWI
+2. NAME : MUHAMAD AZRI BIN YUSOF
 COURSE MODULE
 - Course
 - Assignment
