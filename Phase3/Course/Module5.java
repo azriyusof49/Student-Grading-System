@@ -140,6 +140,7 @@ public class Module5 extends ListTask implements Expand{
                         countLine++;
                     }
                     studentTotalMarks.add(totalMark); // Add total mark for this line
+                    System.out.println("File import successfully!");
                 } else {
                     System.out.println("File does not meet the requirements.");
                 }

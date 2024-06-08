@@ -48,7 +48,8 @@ public class Main {
             "Import Student File | FILE IMPORT : NULL",
             "Import Mark Student | [0/5]",
             "Display GPA",
-            "Display Info Student"
+            "Display Info Student",
+            "Generate Report"
     };
     String hasAssign[] = new String[] {
             "",
@@ -66,8 +67,9 @@ public class Main {
             System.out.println("----------- Student Grading System (Software Engineering)-----------");
             System.out.println("Number of Student : " + countStudent);
             System.out.printf(
-                    "1. %s\n2. %s \n3. %s\n4. %s\n5. %s\n6. %s\n0. Exit\n", menu[0], menu[1], menu[2], menu[3], menu[4],
-                    menu[5]);
+                    "1. %s\n2. %s \n3. %s\n4. %s\n5. %s\n6. %s\n7. %s\n0. Exit\n", menu[0], menu[1], menu[2], menu[3],
+                    menu[4],
+                    menu[5], menu[6]);
             System.out.print("Select an option: ");
             int input = scanner.nextInt();
 
@@ -101,6 +103,9 @@ public class Main {
                     break;
                 case 6:
                     displayStudentInfo();
+                    break;
+                case 7:
+                    generateReport();
                     break;
                 case 0:
                     System.out.println("System Exiting....");
@@ -300,11 +305,21 @@ public class Main {
 
     }
 
+    public void generateReport() {
+        String filePath;
+        scanner.nextLine();
+        Report info = new Report(students, studentTotalMarkModule1, studentTotalMarkModule2,
+                studentTotalMarkModule3, studentTotalMarkModule4, studentTotalMarkModule5);
+        System.out.println("Please enter the file location to Export (path/to/your/[fileName].csv) :");
+        filePath = scanner.nextLine();
+        info.generateCSVReport(filePath);
+    }
+
     public void displayStudentGPA() {
         Report info = new Report(students, studentTotalMarkModule1, studentTotalMarkModule2,
                 studentTotalMarkModule3, studentTotalMarkModule4, studentTotalMarkModule5);
 
-        //info.displayStudentGPA();
+        // info.displayStudentGPA();
         info.displayReport();
 
     }
@@ -442,7 +457,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main mainApp = new Main();
-        mainApp.run();
+
+        LoginPage loginFrame = new LoginPage();
+        loginFrame.setVisible(true);
+
+        // Main mainApp = new Main();
+        // mainApp.run();
+
     }
 }

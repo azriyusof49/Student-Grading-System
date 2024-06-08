@@ -26,6 +26,13 @@ public class Admin extends User {
         this.userName = userName;
     }
 
+    public boolean check(){
+        if (userName.equals("admin") && password.equals("admin")) {
+            return true;
+        }
+        return false;
+    }
+
     public void displayInfo(){
         System.out.println("----- ADMIN ------");
         System.out.println("NAME : "+ getName());

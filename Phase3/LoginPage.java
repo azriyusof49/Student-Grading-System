@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+
+import User.*;
 public class LoginPage extends javax.swing.JFrame {
 
     private Button JButton;
@@ -12,10 +15,10 @@ public class LoginPage extends javax.swing.JFrame {
 
     private int wrongAttempts = 3;
 
-    Lang lang = new Lang(); // Call Text
 
     public LoginPage() {
         initComponents();
+        setEnterKeyListener();
     }
 
    
@@ -111,13 +114,47 @@ public class LoginPage extends javax.swing.JFrame {
         );
 
         pack();
+    }
+    private void setEnterKeyListener() {
+        textField1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField2.requestFocus(); // Move focus to password field
+            }
+        });
+        textField2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                login(); // Perform login when Enter key is pressed in password field
+            }
+        });
+    }
+    private void login() {
+        String username = textField1.getText();
+        String password = new String(textField2.getText());
+
+        Admin admin = new Admin("Admin", username, password);
+
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter username and password");
+        } else if (!admin.check()) {
+            wrongAttempts--;
+            JOptionPane.showMessageDialog(null, "Your username or password seems incorrect. You have "
+                    + wrongAttempts + " attempts left.");
+            if (wrongAttempts == 0) {
+                JOptionPane.showMessageDialog(null, "Your Account Has been LOCK");
+                System.exit(0);
+            }
+        } else {
+            dispose();
+            Main mainApp = new Main();
+            mainApp.run();
+        }
     }                                          
 
     private void LoginPerform(java.awt.event.ActionEvent evt) {                                        
         String username = textField1.getText();
         String password = textField2.getText();
 
-        Auth admin = new Auth(username, password);
+        Admin admin = new Admin("Admin",username, password);
 
         if(username.isEmpty() && password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please enter username and password");
@@ -127,13 +164,13 @@ public class LoginPage extends javax.swing.JFrame {
                                 + (wrongAttempts - 1) + " attempts left.");
              wrongAttempts--;
             if (wrongAttempts == 0) {
-                JOptionPane.showMessageDialog(null, lang.getText("lockAccount"));
+                JOptionPane.showMessageDialog(null, "Your Account Has been LOCK");
                 System.exit(0);
             }
         }else{
             dispose();
-            HomePage frame = new HomePage();
-            frame.setVisible(true);
+            Main mainApp = new Main();
+            mainApp.run();
         }
     }                                       
 }
