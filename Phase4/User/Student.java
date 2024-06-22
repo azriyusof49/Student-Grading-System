@@ -26,8 +26,8 @@ public class Student extends User{
         System.out.println("Student Name : " + getName());
         System.out.println("COURSE ENROLL : ");
         for (int i = 0; i < course.length; i++) {
-            if (course[i] instanceof Module1 ) {
-                Module1 info = (Module1) course[i];
+            if (course[i] instanceof Subject1 ) {
+                Subject1 info = (Subject1) course[i];
                 System.out.println("Module: " + info.getCourseName());
                 System.out.println("Creadit Unit: " + info.getCreaditUnit());
                 System.out.println("Quantity of Quiz: " + info.getQuiz());
@@ -40,8 +40,8 @@ public class Student extends User{
                 }
                 System.out.println();
             }
-            if (course[i] instanceof Module2 ) {
-                Module2 info = (Module2) course[i];
+            if (course[i] instanceof Subject2 ) {
+                Subject2 info = (Subject2) course[i];
                 System.out.println("Module: " + info.getCourseName());
                 System.out.println("Creadit Unit: " + info.getCreaditUnit());
                 System.out.println("Quantity of Quiz: " + info.getQuiz());
@@ -55,8 +55,8 @@ public class Student extends User{
                 }
                 System.out.println();
             }
-            if (course[i] instanceof Module3 ) {
-                Module3 info = (Module3) course[i];
+            if (course[i] instanceof Subject3 ) {
+                Subject3 info = (Subject3) course[i];
                 System.out.println("Module: " + info.getCourseName());
                 System.out.println("Creadit Unit: " + info.getCreaditUnit());
                 System.out.println("Quantity of Quiz: " + info.getQuiz());
@@ -70,8 +70,8 @@ public class Student extends User{
                 }
                 System.out.println();
             }
-            if (course[i] instanceof Module4 ) {
-                Module4 info = (Module4) course[i];
+            if (course[i] instanceof Subject4 ) {
+                Subject4 info = (Subject4) course[i];
                 System.out.println("Module: " + info.getCourseName());
                 System.out.println("Creadit Unit: " + info.getCreaditUnit());
                 System.out.println("Quantity of Quiz: " + info.getQuiz());
@@ -85,8 +85,8 @@ public class Student extends User{
                 }
                 System.out.println();
             }
-            if (course[i] instanceof Module5 ) {
-                Module5 info = (Module5) course[i];
+            if (course[i] instanceof Subject5 ) {
+                Subject5 info = (Subject5) course[i];
                 System.out.println("Module: " + info.getCourseName());
                 System.out.println("Creadit Unit: " + info.getCreaditUnit());
                 System.out.println("Quantity of Quiz: " + info.getQuiz());

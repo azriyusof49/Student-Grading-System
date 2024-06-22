@@ -18,7 +18,7 @@ public class Report extends Calculate {
             List<Double> totalMark3, List<Double> totalMark4,
             List<Double> totalMark5) {
         super(students, totalMark1, totalMark2, totalMark3, totalMark4, totalMark5);
-
+        
     }
 
     // Method to get grade based on grade points
@@ -54,8 +54,8 @@ public class Report extends Calculate {
             System.out.println("Student ID : " + student.getStudentID());
             System.out.println("Name : " + student.getName());
             for (Course course : courses) {
-                if (course instanceof Module1) {
-                    Module1 info = (Module1) course;
+                if (course instanceof Subject1) {
+                    Subject1 info = (Subject1) course;
                     // Ensure gradePointsModule1 has elements before accessing it
                     if (super.gradePointsModule1.size() > studentIndex) {
                         System.out.printf("%s : %.2f | %s\n", info.getCourseName(),
@@ -65,8 +65,8 @@ public class Report extends Calculate {
                     } else {
                         System.out.println("Module 1: Grade Point Not Available");
                     }
-                } else if (course instanceof Module2) {
-                    Module2 info = (Module2) course;
+                } else if (course instanceof Subject2) {
+                    Subject2 info = (Subject2) course;
                     // Ensure gradePointsModule1 has elements before accessing it
                     if (super.gradePointsModule2.size() > studentIndex) {
                         System.out.printf("%s : %.2f | %s\n", info.getCourseName(),
@@ -75,8 +75,8 @@ public class Report extends Calculate {
                     } else {
                         System.out.println("Module 2: Grade Point Not Available");
                     }
-                } else if (course instanceof Module3) {
-                    Module3 info = (Module3) course;
+                } else if (course instanceof Subject3) {
+                    Subject3 info = (Subject3) course;
                     // Ensure gradePointsModule1 has elements before accessing it
                     if (super.gradePointsModule3.size() > studentIndex) {
                         System.out.printf("%s : %.2f | %s\n", info.getCourseName(),
@@ -85,8 +85,8 @@ public class Report extends Calculate {
                     } else {
                         System.out.println("Module 3: Grade Point Not Available");
                     }
-                } else if (course instanceof Module4) {
-                    Module4 info = (Module4) course;
+                } else if (course instanceof Subject4) {
+                    Subject4 info = (Subject4) course;
                     // Ensure gradePointsModule1 has elements before accessing it
                     if (super.gradePointsModule4.size() > studentIndex) {
                         System.out.printf("%s : %.2f | %s\n", info.getCourseName(),
@@ -95,8 +95,8 @@ public class Report extends Calculate {
                     } else {
                         System.out.println("Module 4: Grade Point Not Available");
                     }
-                } else if (course instanceof Module5) {
-                    Module5 info = (Module5) course;
+                } else if (course instanceof Subject5) {
+                    Subject5 info = (Subject5) course;
                     // Ensure gradePointsModule1 has elements before accessing it
                     if (super.gradePointsModule5.size() > studentIndex) {
                         System.out.printf("%s : %.2f| %s\n", info.getCourseName(),
@@ -135,8 +135,8 @@ public class Report extends Calculate {
                                 .append(',');
                         isFirstCourse = false;
                     }
-                    if (course instanceof Module1) {
-                        Module1 info = (Module1) course;
+                    if (course instanceof Subject1) {
+                        Subject1 info = (Subject1) course;
                         if (super.gradePointsModule1.size() > studentIndex) {
                             row.append(info.getCourseName())
                                     .append(',')
@@ -150,8 +150,8 @@ public class Report extends Calculate {
                         } else {
                             System.out.println("Module 1: Grade Point Not Available");
                         }
-                    } else if (course instanceof Module2) {
-                        Module2 info = (Module2) course;
+                    } else if (course instanceof Subject2) {
+                        Subject2 info = (Subject2) course;
                         if (super.gradePointsModule2.size() > studentIndex) {
                             row.append(info.getCourseName())
                                     .append(',')
@@ -165,8 +165,8 @@ public class Report extends Calculate {
                         } else {
                             System.out.println("Module 2: Grade Point Not Available");
                         }
-                    } else if (course instanceof Module3) {
-                        Module3 info = (Module3) course;
+                    } else if (course instanceof Subject3) {
+                        Subject3 info = (Subject3) course;
                         if (super.gradePointsModule3.size() > studentIndex) {
                             row.append(info.getCourseName())
                                     .append(',')
@@ -180,8 +180,8 @@ public class Report extends Calculate {
                         } else {
                             System.out.println("Module 3: Grade Point Not Available");
                         }
-                    } else if (course instanceof Module4) {
-                        Module4 info = (Module4) course;
+                    } else if (course instanceof Subject4) {
+                        Subject4 info = (Subject4) course;
                         if (super.gradePointsModule4.size() > studentIndex) {
                             row.append(info.getCourseName())
                                     .append(',')
@@ -195,8 +195,8 @@ public class Report extends Calculate {
                         } else {
                             System.out.println("Module 4: Grade Point Not Available");
                         }
-                    } else if (course instanceof Module5) {
-                        Module5 info = (Module5) course;
+                    } else if (course instanceof Subject5) {
+                        Subject5 info = (Subject5) course;
                         if (super.gradePointsModule5.size() > studentIndex) {
                             row.append(info.getCourseName())
                                     .append(',')

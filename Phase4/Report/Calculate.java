@@ -6,7 +6,7 @@ import User.Student;
 
 public class Calculate {
 
-     // Attributes
+    // Attributes
     private ArrayList<Student> students;
     private List<Double> studentTotalMarkModule1;
     private List<Double> studentTotalMarkModule2;
@@ -22,8 +22,8 @@ public class Calculate {
 
     // Constructor
     public Calculate(ArrayList<Student> students, List<Double> totalMark1, List<Double> totalMark2,
-                     List<Double> totalMark3, List<Double> totalMark4,
-                     List<Double> totalMark5) {
+            List<Double> totalMark3, List<Double> totalMark4,
+            List<Double> totalMark5) {
         this.students = students;
         this.studentTotalMarkModule1 = totalMark1;
         this.studentTotalMarkModule2 = totalMark2;
@@ -33,9 +33,29 @@ public class Calculate {
         calculateGradePoints();
     }
 
-     // Getter for students
+    // Getter for students
     public ArrayList<Student> getStudents() {
         return students;
+    }
+
+    public List<Double> getGradePointsModule1() {
+        return gradePointsModule1;
+    }
+
+    public List<Double> getGradePointsModule2() {
+        return gradePointsModule2;
+    }
+
+    public List<Double> getGradePointsModule3() {
+        return gradePointsModule3;
+    }
+
+    public List<Double> getGradePointsModule4() {
+        return gradePointsModule4;
+    }
+
+    public List<Double> getGradePointsModule5() {
+        return gradePointsModule5;
     }
 
     // Method to calculate grade points for each student
@@ -43,21 +63,26 @@ public class Calculate {
         for (Student student : students) {
             Course[] courses = student.getCourses();
             for (Course course : courses) {
-                if (course instanceof Module1) {
-                    Module1 module = (Module1) course;
-                    gradePointsModule1.add(getGradePoint(studentTotalMarkModule1, students.indexOf(student), module.getCreaditUnit()));
-                } else if (course instanceof Module2) {
-                    Module2 module = (Module2) course;
-                    gradePointsModule2.add(getGradePoint(studentTotalMarkModule2, students.indexOf(student), module.getCreaditUnit()));
-                } else if (course instanceof Module3) {
-                    Module3 module = (Module3) course;
-                    gradePointsModule3.add(getGradePoint(studentTotalMarkModule3, students.indexOf(student), module.getCreaditUnit()));
-                } else if (course instanceof Module4) {
-                    Module4 module = (Module4) course;
-                    gradePointsModule4.add(getGradePoint(studentTotalMarkModule4, students.indexOf(student), module.getCreaditUnit()));
-                } else if (course instanceof Module5) {
-                    Module5 module = (Module5) course;
-                    gradePointsModule5.add(getGradePoint(studentTotalMarkModule5, students.indexOf(student), module.getCreaditUnit()));
+                if (course instanceof Subject1) {
+                    Subject1 module = (Subject1) course;
+                    gradePointsModule1.add(
+                            getGradePoint(studentTotalMarkModule1, students.indexOf(student), module.getCreaditUnit()));
+                } else if (course instanceof Subject2) {
+                    Subject2 module = (Subject2) course;
+                    gradePointsModule2.add(
+                            getGradePoint(studentTotalMarkModule2, students.indexOf(student), module.getCreaditUnit()));
+                } else if (course instanceof Subject3) {
+                    Subject3 module = (Subject3) course;
+                    gradePointsModule3.add(
+                            getGradePoint(studentTotalMarkModule3, students.indexOf(student), module.getCreaditUnit()));
+                } else if (course instanceof Subject4) {
+                    Subject4 module = (Subject4) course;
+                    gradePointsModule4.add(
+                            getGradePoint(studentTotalMarkModule4, students.indexOf(student), module.getCreaditUnit()));
+                } else if (course instanceof Subject5) {
+                    Subject5 module = (Subject5) course;
+                    gradePointsModule5.add(
+                            getGradePoint(studentTotalMarkModule5, students.indexOf(student), module.getCreaditUnit()));
                 }
             }
         }
@@ -86,24 +111,24 @@ public class Calculate {
 
             for (Course course : courses) {
                 double creditUnit = 0;
-                if (course instanceof Module1) {
-                    Module1 module = (Module1) course;
+                if (course instanceof Subject1) {
+                    Subject1 module = (Subject1) course;
                     creditUnit = module.getCreaditUnit();
                     studentSumGradePoint[studentIndex] += gradePointsModule1.get(studentIndex) * creditUnit;
-                } else if (course instanceof Module2) {
-                    Module2 module = (Module2) course;
+                } else if (course instanceof Subject2) {
+                    Subject2 module = (Subject2) course;
                     creditUnit = module.getCreaditUnit();
                     studentSumGradePoint[studentIndex] += gradePointsModule2.get(studentIndex) * creditUnit;
-                } else if (course instanceof Module3) {
-                    Module3 module = (Module3) course;
+                } else if (course instanceof Subject3) {
+                    Subject3 module = (Subject3) course;
                     creditUnit = module.getCreaditUnit();
                     studentSumGradePoint[studentIndex] += gradePointsModule3.get(studentIndex) * creditUnit;
-                } else if (course instanceof Module4) {
-                    Module4 module = (Module4) course;
+                } else if (course instanceof Subject4) {
+                    Subject4 module = (Subject4) course;
                     creditUnit = module.getCreaditUnit();
                     studentSumGradePoint[studentIndex] += gradePointsModule4.get(studentIndex) * creditUnit;
-                } else if (course instanceof Module5) {
-                    Module5 module = (Module5) course;
+                } else if (course instanceof Subject5) {
+                    Subject5 module = (Subject5) course;
                     creditUnit = module.getCreaditUnit();
                     studentSumGradePoint[studentIndex] += gradePointsModule5.get(studentIndex) * creditUnit;
                 }

@@ -4,14 +4,17 @@
  */
 package Frame;
 
-import Frame.Controller.AssignModule;
+import javax.swing.JOptionPane;
+
+import Course.*;
+import Frame.Controller.*;
 
 /**
  *
  * @author AzrixDya
  */
 public class ManageCourse extends javax.swing.JFrame {
-
+        Course[] softwareEngineering = new Course[5];
         String nameCourse[] = new String[] {
                         "Module 1",
                         "Module 2",
@@ -31,6 +34,15 @@ public class ManageCourse extends javax.swing.JFrame {
 
         public ManageCourse() {
                 initComponents();
+        }
+
+        public ManageCourse(Course[] CourseInfo) {
+                softwareEngineering = CourseInfo;
+                initComponents();
+        }
+
+        public Course[] getCourses() {
+                return softwareEngineering;
         }
 
         private void initComponents() {
@@ -98,7 +110,7 @@ public class ManageCourse extends javax.swing.JFrame {
                 accountLogo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 accountLogo.setForeground(new java.awt.Color(255, 255, 255));
                 accountLogo.setIcon(new javax.swing.ImageIcon(
-                                "D:\\STUDY\\UMT SEM2\\Student-Grading-System-main\\asset\\icons8-male-user-50.png")); // NOI18N
+                                "D:\\Study\\UMT\\SEM2\\CSF3043_OOP\\Work\\Project\\Student-Grading-System\\asset\\icons8-male-user-50.png")); // NOI18N
 
                 TextAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 TextAdmin.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,13 +153,11 @@ public class ManageCourse extends javax.swing.JFrame {
                 });
 
                 jLabel11.setIcon(new javax.swing.ImageIcon(
-                                "D:\\STUDY\\UMT SEM2\\Student-Grading-System-main\\asset\\icons8-create-order-32.png")); // NOI18N
+                                getClass().getResource("/assets/icons8-create-order-32.png"))); // NOI18N
 
-                jLabel12.setIcon(new javax.swing.ImageIcon(
-                                "D:\\STUDY\\UMT SEM2\\Student-Grading-System-main\\asset\\icons8-document-32.png")); // NOI18N
+                jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-document-32.png"))); // NOI18N
 
-                jLabel13.setIcon(new javax.swing.ImageIcon(
-                                "D:\\STUDY\\UMT SEM2\\Student-Grading-System-main\\asset\\icons8-download-32.png")); // NOI18N
+                jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-download-32.png")));// NOI18N
 
                 javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
                 Menu.setLayout(MenuLayout);
@@ -275,18 +285,25 @@ public class ManageCourse extends javax.swing.JFrame {
                 jLabel1.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel1.setText("COURSE MANAGEMENT");
 
-                Module1Btn1.setText(nameCourse[0]);
+                if (softwareEngineering[0] == null || softwareEngineering[0].getCourseName() == null) {
+                        Module1Btn1.setText(nameCourse[0]);
+                } else {
+                        Module1Btn1.setText(softwareEngineering[0].getCourseName());
+                }
                 Module1Btn1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 Module1Btn1ActionPerformed(evt);
                         }
                 });
-
                 LabelModule1.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
                 LabelModule1.setForeground(new java.awt.Color(255, 255, 255));
                 LabelModule1.setText(hasAssign[0]);
 
-                Module1Btn.setText(nameCourse[1]);
+                if (softwareEngineering[1] == null || softwareEngineering[1].getCourseName() == null) {
+                        Module1Btn.setText(nameCourse[1]);
+                } else {
+                        Module1Btn.setText(softwareEngineering[1].getCourseName());
+                }
                 Module1Btn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 Module2Btn2ActionPerformed(evt);
@@ -297,7 +314,11 @@ public class ManageCourse extends javax.swing.JFrame {
                 LabelModule2.setForeground(new java.awt.Color(255, 255, 255));
                 LabelModule2.setText(hasAssign[1]);
 
-                Module1Btn2.setText(nameCourse[2]);
+                if (softwareEngineering[2] == null || softwareEngineering[2].getCourseName() == null) {
+                        Module1Btn2.setText(nameCourse[2]);
+                } else {
+                        Module1Btn2.setText(softwareEngineering[2].getCourseName());
+                }
                 Module1Btn2.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 Module3Btn3ActionPerformed(evt);
@@ -308,7 +329,11 @@ public class ManageCourse extends javax.swing.JFrame {
                 LabelModule3.setForeground(new java.awt.Color(255, 255, 255));
                 LabelModule3.setText(hasAssign[2]);
 
-                Module1Btn3.setText(nameCourse[3]);
+                if (softwareEngineering[3] == null || softwareEngineering[3].getCourseName() == null) {
+                        Module1Btn3.setText(nameCourse[3]);
+                } else {
+                        Module1Btn3.setText(softwareEngineering[3].getCourseName());
+                }
                 Module1Btn3.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 Module4Btn4ActionPerformed(evt);
@@ -319,7 +344,11 @@ public class ManageCourse extends javax.swing.JFrame {
                 LabelModule4.setForeground(new java.awt.Color(255, 255, 255));
                 LabelModule4.setText(hasAssign[3]);
 
-                Module1Btn4.setText(nameCourse[4]);
+                if (softwareEngineering[4] == null || softwareEngineering[4].getCourseName() == null) {
+                        Module1Btn4.setText(nameCourse[4]);
+                } else {
+                        Module1Btn4.setText(softwareEngineering[4].getCourseName());
+                }
                 Module1Btn4.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 Module5Btn5ActionPerformed(evt);
@@ -342,9 +371,7 @@ public class ManageCourse extends javax.swing.JFrame {
                                 BarTop2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGap(0, 3, Short.MAX_VALUE));
 
-                jLabel7.setIcon(
-                                new javax.swing.ImageIcon(
-                                                "D:\\STUDY\\UMT SEM2\\Student-Grading-System-main\\asset\\Document.png")); // NOI18N
+                jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Document.png"))); // NOI18N
 
                 jLabel2.setBackground(new java.awt.Color(153, 153, 153));
                 jLabel2.setForeground(new java.awt.Color(204, 204, 204));
@@ -558,18 +585,31 @@ public class ManageCourse extends javax.swing.JFrame {
 
         private void PercentageBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PercentageBtnActionPerformed
                 // TODO add your handling code here:
+                try {
+                        Percentage Frame = new Percentage(softwareEngineering);
+                        Frame.setVisible(true);
+                        dispose();
+                } catch (Exception e) {
+                        // TODO: handle exception
+                        System.out.println(e);
+                        JOptionPane.showMessageDialog(null, "Cannot Assign Yet! | " + e);
+                }
+
         }// GEN-LAST:event_PercentageBtnActionPerformed
 
         private void ImportBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ImportBtnActionPerformed
                 // TODO add your handling code here:
+                JOptionPane.showMessageDialog(null, "Please Assign Percentage ..");
         }// GEN-LAST:event_ImportBtnActionPerformed
 
         private void Module1Btn1ActionPerformed(java.awt.event.ActionEvent evt) {
-                AssignModule.AssignModuleListener listener = new AssignModule.AssignModuleListener() {
+                BtnSubject1.AssignModuleListener listener = new BtnSubject1.AssignModuleListener() {
                         @Override
-                        public void onModuleAssigned(String courseName) {
+                        // GetValue from frame BtnSubject1
+                        public void onModuleAssigned(String courseName, int CreaditUnit, int quiz, int assignment,
+                                        int test, int hasfinalexam) {
                                 nameCourse[0] = courseName;
-                                hasAssign[0] = "COURSE : DONE";
+                                hasAssign[0] = "COURSE : COMPLETE";
                                 // Repaint the button and label with the new course name
                                 Module1Btn1.setText(nameCourse[0]);
                                 Module1Btn1.revalidate();
@@ -577,27 +617,119 @@ public class ManageCourse extends javax.swing.JFrame {
                                 LabelModule1.setText(hasAssign[0]);
                                 LabelModule1.revalidate();
                                 LabelModule1.repaint();
+                                // AssignCourse
+                                softwareEngineering[0] = new Subject1(nameCourse[0], CreaditUnit, quiz, assignment,
+                                                test, hasfinalexam);
                         }
-                };// GEN-LAST:event_Module1Btn1ActionPerformed
+                };
+                BtnSubject1 subject1 = new BtnSubject1(listener);
+                subject1.setVisible(true);
 
-                AssignModule module1 = new AssignModule(listener);
-                module1.setVisible(true);
         }
 
         private void Module2Btn2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Module1Btn2ActionPerformed
                 // TODO add your handling code here:
+                BtnSubject2.AssignModuleListener listener = new BtnSubject2.AssignModuleListener() {
+                        @Override
+                        public void onModuleAssigned(String courseName, int CreaditUnit, int quiz, int assignment,
+                                        int test, int hasfinalexam, int practicalTest) {
+                                nameCourse[1] = courseName;
+                                hasAssign[1] = "COURSE : COMPLETE";
+                                // Repaint the button and label with the new course name
+                                Module1Btn.setText(nameCourse[1]);
+                                Module1Btn.revalidate();
+                                Module1Btn.repaint();
+                                LabelModule2.setText(hasAssign[1]);
+                                LabelModule2.revalidate();
+                                LabelModule2.repaint();
+                                // AssignCourse
+                                softwareEngineering[1] = new Subject2(nameCourse[1], CreaditUnit, quiz, assignment,
+                                                test, hasfinalexam, practicalTest);
+                        }
+                };
+                // GEN-LAST:event_Module1Btn1ActionPerformed
+
+                BtnSubject2 subject2 = new BtnSubject2(listener);
+                subject2.setVisible(true);
         }// GEN-LAST:event_Module1Btn2ActionPerformed
 
         private void Module3Btn3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Module1Btn3ActionPerformed
                 // TODO add your handling code here:
+                BtnSubject3.AssignModuleListener listener = new BtnSubject3.AssignModuleListener() {
+                        @Override
+                        public void onModuleAssigned(String courseName, int CreaditUnit, int quiz, int assignment,
+                                        int test, int hasfinalexam) {
+                                nameCourse[2] = courseName;
+                                hasAssign[2] = "COURSE : COMPLETE";
+                                // Repaint the button and label with the new course name
+                                Module1Btn2.setText(nameCourse[2]);
+                                Module1Btn2.revalidate();
+                                Module1Btn2.repaint();
+                                LabelModule3.setText(hasAssign[2]);
+                                LabelModule3.revalidate();
+                                LabelModule3.repaint();
+                                // AssignCourse
+                                softwareEngineering[2] = new Subject3(nameCourse[2], CreaditUnit, quiz, assignment,
+                                                test, hasfinalexam);
+                        }
+                };// GEN-LAST:event_Module1Btn1ActionPerformed
+
+                BtnSubject3 subject3 = new BtnSubject3(listener);
+                subject3.setVisible(true);
         }// GEN-LAST:event_Module1Btn3ActionPerformed
 
         private void Module4Btn4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Module1Btn4ActionPerformed
                 // TODO add your handling code here:
+                BtnSubject4.AssignModuleListener listener = new BtnSubject4.AssignModuleListener() {
+                        @Override
+                        public void onModuleAssigned(String courseName, int CreaditUnit, int quiz, int assignment,
+                                        int test, int hasfinalexam) {
+                                nameCourse[3] = courseName;
+                                hasAssign[3] = "COURSE : COMPLETE";
+                                // Repaint the button and label with the new course name
+                                Module1Btn3.setText(nameCourse[3]);
+                                Module1Btn3.revalidate();
+                                Module1Btn3.repaint();
+                                LabelModule4.setText(hasAssign[3]);
+                                LabelModule4.revalidate();
+                                LabelModule4.repaint();
+                                // AssignCourse
+                                softwareEngineering[3] = new Subject4(nameCourse[3], CreaditUnit, quiz, assignment,
+                                                test, hasfinalexam);
+                        }
+                };// GEN-LAST:event_Module1Btn1ActionPerformed
+
+                BtnSubject4 subject4 = new BtnSubject4(listener);
+                subject4.setVisible(true);
         }// GEN-LAST:event_Module1Btn4ActionPerformed
 
         private void Module5Btn5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Module1Btn4ActionPerformed
                 // TODO add your handling code here:
+                BtnSubject5.AssignModuleListener listener = new BtnSubject5.AssignModuleListener() {
+                        @Override
+                        public void onModuleAssigned(String courseName, int CreaditUnit, int quiz, int assignment,
+                                        int test, int hasfinalexam, int VideoAssignment) {
+                                nameCourse[4] = courseName;
+                                hasAssign[4] = "COURSE : COMPLETE";
+                                // Repaint the button and label with the new course name
+                                Module1Btn4.setText(nameCourse[4]);
+                                Module1Btn4.revalidate();
+                                Module1Btn4.repaint();
+                                LabelModule5.setText(hasAssign[4]);
+                                LabelModule5.revalidate();
+                                LabelModule5.repaint();
+                                softwareEngineering[4] = new Subject5(nameCourse[4], CreaditUnit, quiz, assignment,
+                                                test, hasfinalexam, VideoAssignment);
+                                
+                        }
+                };// GEN-LAST:event_Module1Btn1ActionPerformed
+
+                // softwareEngineering[4] = new Subject5(nameCourse[4], CreaditUnit, Quiz,
+                // Assignment, Test, FinalExam,
+                // VideoAssignment);
+                BtnSubject5 subject5 = new BtnSubject5(listener);
+                subject5.setVisible(true);
+
         }// GEN-LAST:event_Module1Btn4ActionPerformed
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
